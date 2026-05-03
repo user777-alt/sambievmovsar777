@@ -377,6 +377,9 @@ forwarders {9.9.9.9; };
 allow-query { any; };
 ```
 ```bash
+nano /etc/bind/local.conf
+// Add other zones here
+// Зона прямого просмотра (A-записи)
 zone "au-team.irpo" {
     type master;
     file "/etc/bind/db.au-team.irpo";
