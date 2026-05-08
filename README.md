@@ -204,41 +204,6 @@ exit
 wr
 ```
 ```bash
-show run
-```
-Содержание конфигурации FFR после настройки
-```bash
-Current configuration:
-!
-frr version 9.0.2
-frr defaults traditional
-hostname hq-rtr.au-team.irpo
-log file /var/log/frr/frr.log
-no ipv6 forwarding
-!
-interface gre1
- ip ospf authentication
- ip ospf authentication-key P@ssw0rd
- ip ospf network broadcast
- no ip ospf passive
-exit
-!
-router ospf
- ospf router-id 172.16.1.1
- network 10.10.0.0/30 area 0
- network 192.168.99.88/29 area 0
- network 192.168.100.0/27 area 0
- network 192.168.200.64/28 area 0
- area 0 authentication
-exit
-!
-end
-```
-проверка
-```bash
-hq-rtr.au-team.irpo# show ip ospf neighbor
-```
-```bash
 apt-get update && apt-get install dhcp-server nano -y
 ```
 ```bash
