@@ -27,9 +27,6 @@ echo "172.16.2.1/25" > /etc/net/ifaces/enp7s3/ipv4address
 systemctl restart network
 ```
 ```bash
-ip -c -br a
-```
-```bash
 sed -i 's/net.ipv4.ip_forward = 0/net.ipv4.ip_forward = 1/' /etc/net/sysctl.conf
 ```
 ```bash
@@ -48,10 +45,6 @@ iptables -A FORWARD -i ens20 -o enp7s1 -s 172.16.2.0/28 -j ACCEPT
 iptables-save > /etc/sysconfig/iptables
 systemctl enable iptables --now
 systemctl restart iptables
-```
-```bash
-systemctl status iptables
-iptables -t nat -L -n -v
 ```
 ```bash
 timedatectl set-timezone Asia/Yekaterinburg
