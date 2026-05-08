@@ -263,7 +263,7 @@ systemctl restart dhcpd
 systemctl status dhcpd
 ```
 ```bash
-sed -i 's/nameserver 9.9.9.9/nameserver 192.168.100.2' /etc/net/ifaces/enp7s1/resolv.conf
+sed -i 's/nameserver 9.9.9.9/nameserver 192.168.100.2/' /etc/net/ifaces/enp7s1/resolv.conf
 ```
 ```bash
 systemctl restart network
