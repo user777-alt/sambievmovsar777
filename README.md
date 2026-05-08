@@ -67,7 +67,7 @@ EOF
 ```
 ```bash
 cat > /etc/net/ifaces/enp7s2/options << EOF
-BOOTPROTO=static
+BOOTPROTO=none
 TYPE=eth
 EOF
 ```
@@ -75,14 +75,10 @@ EOF
 echo "172.16.1.2/25" > /etc/net/ifaces/enp7s1/ipv4address
 ```
 ```bash
-cat > /etc/net/ifaces/enp7s1/ipv4route << EOF
-default via 172.16.1.1
-EOF
+echo "default via 172.16.1.1" > /etc/net/ifaces/enp7s1/ipv4route 
 ```
 ```bash
-cat > /etc/net/ifaces/enp7s1/resolv.conf << EOF
-nameserver 9.9.9.9
-EOF
+echo "nameserver 9.9.9.9" > /etc/net/ifaces/enp7s1/resolv.conf 
 ```
 ```bash
 cat > /etc/net/ifaces/enp7s2.100/options << EOF
