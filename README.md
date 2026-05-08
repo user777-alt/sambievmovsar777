@@ -174,7 +174,7 @@ systemctl restart network
 ip -c -br a
 ```
 ```bash
-sed -i 's/ospfd=no/ospfd=yes' /etc/frr/daemons
+sed -i 's/ospfd=no/ospfd=yes/' /etc/frr/daemons
 ```
 ```bash
 systemctl enable --now frr
