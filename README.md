@@ -254,10 +254,7 @@ echo "default via 192.168.100.1" > /etc/net/ifaces/enp7s1/ipv4route
 echo "nameserver 9.9.9.9" > /etc/net/ifaces/enp7s1/resolv.conf
 ```
 ```bash
-systemctl restart network
-```
-```bash
-ip -c -br a 
+systemctl restart network 
 ```
 ```bash
 timedatectl set-timezone Asia/Yekaterinburg
@@ -273,7 +270,7 @@ usermod -a -G wheel sshuser
 echo "sshuser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 ```
 ```bash
-apt-get update && apt-get install -y openssh-server nano
+apt-get update && apt-get install -y openssh-server bind nano
 ```
 ```bash
 cat > /etc/openssh/sshd_config << EOF
@@ -289,11 +286,6 @@ echo "«Authorized access only»" > /etc/openssh/sshd_banner
 ```bash
 systemctl enable sshd --now
 systemctl restart sshd
-
-systemctl status sshd
-```
-```bash
-ssh sshuser@localhost -p 2026
 ```
 ```bash
 sed -i 's/old/listen-on { any; };' -e 's/old/forward first;' -e 's/forwarders {9.9.9.9; };' -e 's/old/allow-query { any; };' /etc/bind/options.conf
@@ -380,9 +372,6 @@ name_servers=127.0.0.1
 ```bash
 resolvconf -u
 systemctl restart network
-```
-```bash
-cat /etc/resolv.conf | grep nameserver
 ```
 ```bash
 systemctl enable --now bind
