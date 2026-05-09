@@ -128,16 +128,29 @@ systemctl restart network
 ```
 ```bash
 apt-get update && apt-get install -y iptables tzdata sudo frr 
-
+```
+```bash
 iptables -t nat -A POSTROUTING -o enp7s1 -s 192.168.100.0/27 -j MASQUERADE
+```
+```bash
 iptables -t nat -A POSTROUTING -o enp7s1 -s 192.168.200.64/28 -j MASQUERADE
+```
+```bash
 iptables -t nat -A POSTROUTING -o enp7s1 -s 192.168.99.88/29 -j MASQUERADE
-
+```
+```bash
 iptables -A FORWARD -i ens19.10 -o enp7s1 -s 192.168.100.0/27 -j ACCEPT
+```
+```bash
 iptables -A FORWARD -i ens19.20 -o enp7s1 -s 192.168.200.64/28 -j ACCEPT
+```
+```bash
 iptables -A FORWARD -i ens19.99 -o enp7s1 -s 192.168.99.88/29 -j ACCEPT
-
+```
+```bash
 iptables-save > /etc/sysconfig/iptables
+```
+```bash
 systemctl enable iptables --now
 systemctl restart iptables
 ```
@@ -171,7 +184,6 @@ echo "10.10.0.1/25" > /etc/net/ifaces/gre1/ipv4address
 ```
 ```bash
 systemctl restart network
-ip -c -br a
 ```
 ```bash
 sed -i 's/ospfd=no/ospfd=yes/' /etc/frr/daemons
@@ -223,9 +235,6 @@ subnet 192.168.200.64 netmask 255.255.255.240 {
 ```bash
 systemctl enable --now dhcpd
 systemctl restart dhcpd
-```
-```bash
-systemctl status dhcpd
 ```
 ```bash
 sed -i 's/nameserver 9.9.9.9/nameserver 192.168.100.2/' /etc/net/ifaces/enp7s1/resolv.conf
