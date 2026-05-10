@@ -128,26 +128,15 @@ systemctl restart network
 ```
 ```bash
 apt-get update && apt-get install -y iptables tzdata sudo frr 
-```
-```bash
+
 iptables -t nat -A POSTROUTING -o enp7s1 -s 192.168.100.0/27 -j MASQUERADE
-```
-```bash
 iptables -t nat -A POSTROUTING -o enp7s1 -s 192.168.200.64/28 -j MASQUERADE
-```
-```bash
 iptables -t nat -A POSTROUTING -o enp7s1 -s 192.168.99.88/29 -j MASQUERADE
-```
-```bash
+
 iptables -A FORWARD -i ens19.10 -o enp7s1 -s 192.168.100.0/27 -j ACCEPT
-```
-```bash
 iptables -A FORWARD -i ens19.20 -o enp7s1 -s 192.168.200.64/28 -j ACCEPT
-```
-```bash
 iptables -A FORWARD -i ens19.99 -o enp7s1 -s 192.168.99.88/29 -j ACCEPT
-```
-```bash
+
 iptables-save > /etc/sysconfig/iptables
 ```
 ```bash
@@ -297,7 +286,7 @@ systemctl enable sshd --now
 systemctl restart sshd
 ```
 ```bash
-sed -i 's/old/listen-on { any; };' -e 's/old/forward first;' -e 's/forwarders {9.9.9.9; };' -e 's/old/allow-query { any; };' /etc/bind/options.conf
+sed -i 's/old/listen-on { any; };' -e 's/old/forward first;' -e 's/forwarders {9.9.9.9; };' -e 's/old/allow-query { any; };/' /etc/bind/options.conf
 ```
 ```bash
 nano /etc/bind/local.conf
@@ -404,7 +393,10 @@ ip -c -br a
 ```
 # BR-RTR
 ```bash
-mkdir /etc/net/ifaces/enp7s2/
+hostnamectl set-hostname br-rtr.au-team.irpo; exec bash
+```
+```bash
+mkdir /etc/net/ifaces/enp7s2
 ```
 ```bash
 cat > /etc/net/ifaces/enp7s2/options << EOF
@@ -464,7 +456,7 @@ passwd net_admin
 usermod -a -G wheel net_admin
 ```
 ```bash 
-echo > "net_admin ALL=(ALL) NOPASSWD: ALL" /etc/sudoers
+echo > "net_admin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 ```
 ```bash
 mkdir /etc/net/ifaces/gre1
@@ -486,7 +478,7 @@ systemctl restart network
 ip -c -br a
 ```
 ```bash
-sed -i 's/ospfd=no/ospfd=yes' /etc/frr/daemons
+sed -i 's/ospfd=no/ospfd=yes/' /etc/frr/daemons
 ```
 ```bash
 systemctl enable --now frr
@@ -520,7 +512,7 @@ show run
 br-rtr.au-team.irpo# show ip ospf neighbor
 ```
 ```bash
-sed -i 's/nameserver 9.9.9.9/nameserver 192.168.100.2' /etc/net/ifaces/enp7s1/resolv.conf
+sed -i 's/nameserver 9.9.9.9/nameserver 192.168.100.2/' /etc/net/ifaces/enp7s1/resolv.conf
 ```
 ```bash
 systemctl restart network
@@ -563,7 +555,7 @@ echo "sshuser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 apt-get update && apt-get install openssh-server -y
 ```
 ```bash
-cat < /etc/openssh/sshd_config << EOF
+cat > /etc/openssh/sshd_config << EOF
 Port 2026
 MaxAuthTries 2
 Banner /etc/openssh/sshd_banner
@@ -580,7 +572,7 @@ systemctl restart sshd
 systemctl status sshd
 ```
 ```bash
-sed -i 's/nameserver 9.9.9.9/nameserver 192.168.100.2' /etc/net/ifaces/enp7s1/resolv.conf
+sed -i 's/nameserver 9.9.9.9/nameserver 192.168.100.2/' /etc/net/ifaces/enp7s1/resolv.conf
 ```
 ```bash
 systemctl restart network
