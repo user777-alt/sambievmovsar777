@@ -5,6 +5,7 @@ apt-get update && apt-get dist-upgrade -y
 ```
 ```bash
 nano /etc/sudoers
+root ALL=(ALL:ALL) ALL - убрать решетку
 user ALL=(ALL:ALL) ALL
 ```
 ```bash
