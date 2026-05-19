@@ -60,9 +60,22 @@ user:1111
 ip -c -br a
 ```
 ```bash
+echo "default via 172.16.1.1" > /etc/net/ifaces/ens33/ipv4route 
+```
+```bash
+nano /etc/net/ifaces/ens33/resolv.conf
+name_server=127.0.0.1
+name_server=192.168.0.0-Начальный ip адрес DHCP
+```
+```bash
+resolvconf -u
+systemctl restart network
+```
+Проверка
+```bash
 ping <ip>                        #ALT-NET
 ping 8.8.8.8
-
+apt-get update
 ```
 ```bash
 ```
