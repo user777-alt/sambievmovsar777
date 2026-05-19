@@ -1,1 +1,79 @@
+```
+# ALT-NET
+```bash
+apt-get update && apt-get dist-upgrade -y
+```
+```bash
+nano /etc/sudoers
+user ALL=(ALL:ALL) ALL
+```
+```bash
+apt-get install alterator alterator fbi -y
+```
+```bash
+systemctl enable --now alteratord
+systemctl enable --now ahttpd
+```
+```bash
+apt-get install alterator-dhcp alterator-bind alterator-net-iptables -y
+```
+```bash
+reboot
+```
+```bash
+Заходим в браузер и пишем свой ip:8080
+root
+password
+```
+Серверы
+```bash
+DHSP-сервер
+Начальный ip адрес:192.168.20.10
+Конечный ip адрес:192.168.20.20
+DNS-сервер:192.168.20.2
+Домен поиска:8.8.8.8
+Шлюз по умолчанию:192.168.20.2
+Применить
+```
+Брандмауэр
+```bash
+Внешние сети
+Выберите внешние интерфейсы:ens33
+Включить брандмауэр:поставь галочку
+Применить
+```
+Система
+```bash
+Выключение компьютера
+Перезагрузить компьютер сейчас
+Применить
+```
+ALT-CLI
+```bash
+Настраиваем ALT-server авто-установка задаем время Екатиринбург и дальше как обычно устанавливаем ALT-server
+задаем пароль:
+root:2222
+user:1111
+```
+Проверка
+```bash
+ip -c -br a
+```
+```bash
+ping <ip>                        #ALT-NET
+ping 8.8.8.8
 
+```
+```bash
+```
+```bash
+```
+```bash
+```
+```bash
+```
+```bash
+```
+```bash
+```
+```bash
