@@ -9,7 +9,7 @@ root ALL=(ALL:ALL) ALL - убрать решетку
 user ALL=(ALL:ALL) ALL
 ```
 ```bash
-apt-get install alterator alterator fbi -y
+apt-get install ahttpd alterator alterator fbi -y
 ```
 ```bash
 systemctl enable --now alteratord
