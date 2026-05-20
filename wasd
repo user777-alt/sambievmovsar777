@@ -64,7 +64,13 @@ nano /etc/resolv.conf
 nameserver 8.8.8.8
 ```
 ```bash
+chattr +i /etc/resolv.conf
+```
+```bash
 systemctl restart network
+```
+```bash
+reboot
 ```
 Проверка
 ```bash
