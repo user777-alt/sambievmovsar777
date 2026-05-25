@@ -1,4 +1,5 @@
 ```
+/etc/apt/sources.list.d
 Репозитории сервера
 ```bash
 rpm [p11] http://192.168.1.150/p11/branch/x86_64_classic
