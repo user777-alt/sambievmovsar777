@@ -60,7 +60,7 @@ root:2222
 user:1111
 ```
 ```bash
-nano /etc/resolv.conf
+nano /etc/net/ifaces/ens33/resolv.conf
 nameserver 8.8.8.8
 nameserver 192.168.60.1
 ```
