@@ -56,25 +56,11 @@ ALT-CLI
 root:2222
 user:1111
 ```
-Проверка
-```bash
-ip -c -br a
-```
 ```bash
 nano /etc/resolv.conf
 nameserver 8.8.8.8
-```
-```bash
-chattr +i /etc/resolv.conf
+nameserver 192.168.60.1
 ```
 ```bash
 systemctl restart network
 ```
-```bash
-reboot
-```
-Проверка
-```bash
-ping <ip>                        #ALT-NET
-ping 8.8.8.8
-apt-get update
