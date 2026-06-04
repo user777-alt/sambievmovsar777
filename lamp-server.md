@@ -49,6 +49,10 @@ FLUSH PRIVILEGES;
 show variables like 'port';
 ```
 ```bash
+nano /etc/my.cnf.d/server.cnf
+#skip-networking
+```
+```bash
 systemctl restart httpd2
 ```
 ```bash
@@ -61,7 +65,7 @@ index.php
 mkdir /var/www/html/shadow
 ```
 ```bash
-
+reboot
 ```
 ```bash
 
