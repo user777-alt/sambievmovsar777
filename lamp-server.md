@@ -66,6 +66,4 @@ mkdir /var/www/html/shadow
 ```
 ```bash
 reboot
-```
-```bash
 
