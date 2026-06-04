@@ -46,6 +46,7 @@ GRANT ALL PRIVILEGES ON `shark` .* TO 'fish'@'%';
 FLUSH PRIVILEGES;
 ```
 ```bash
+systemctl restart httpd2
 ```
 ```bash
 ```
