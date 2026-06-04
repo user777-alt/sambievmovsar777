@@ -39,7 +39,7 @@ CREATE DATABASE `shark`;
 CREATE USER 'fish'@'%' IDENTIFIED BY '123';
 ```
 ```bash
-GRANT ALL PRIVILEGES ON `dust` .* TO 'mov'@'%';
+GRANT ALL PRIVILEGES ON `shark` .* TO 'fish'@'%';
 ```
 ```bash
 FLUSH PRIVILEGES;
