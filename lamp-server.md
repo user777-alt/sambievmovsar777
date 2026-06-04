@@ -46,13 +46,22 @@ GRANT ALL PRIVILEGES ON `shark` .* TO 'fish'@'%';
 FLUSH PRIVILEGES;
 ```
 ```bash
+show variables like 'port';
+```
+```bash
 systemctl restart httpd2
 ```
 ```bash
+mc /var/www/html
+shift+f4
+<?php phpinfo(); ?>
+index.php
 ```
 ```bash
+mkdir /var/www/html/shadow
 ```
 ```bash
+
 ```
 ```bash
 
