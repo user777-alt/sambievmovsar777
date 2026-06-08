@@ -51,7 +51,7 @@ SELECT user, host FROM mysql.user;
 iconv -f UTF-16 -t UTF-8 /root/web/dump.sql -o /root/web/dump-utf8.sql
 ```
 ```bash
-mysql -u root shark < /root/web/dump.sql
+mysql -u root -p shark < /root/web/dump-utf8.sql
 ```
 ```bash
 cp /root/web/index.php /var/www/html/
