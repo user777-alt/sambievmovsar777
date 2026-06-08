@@ -33,10 +33,10 @@ ls -la /root/web
 CREATE DATABASE `shark`;
 ```
 ```bash
-CREATE USER 'fish'@'%' IDENTIFIED BY '123';
+CREATE USER 'fish'@'localhost' IDENTIFIED BY '123';
 ```
 ```bash
-USE webdb; SHOW TABLES;
+USE shark; SHOW TABLES;
 ```
 ```bash
 GRANT ALL PRIVILEGES ON `shark` .* TO 'fish'@'localhost';
