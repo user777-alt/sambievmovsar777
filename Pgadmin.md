@@ -48,7 +48,22 @@ DEFAULT_SERVER = '0.0.0.0'
 ```bash
 systemctl restart pgadmin4
 ```
+Заходим в браузер
 ```bash
+http://192.168.1.78:8765/
+sample@alt.domain
+sample_password
 ```
-```bash
+Задаем имя wasd
+```
+localhost
+```
+postgres
+```
+PHP
+```
+3
+```
+
+
 
