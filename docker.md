@@ -7,7 +7,7 @@ rpm [p11] http://192.168.1.150 /p11/branch/noarch classic
 apt-get update && apt-get dist-upgrade -y
 ```
 ```bash
-apt-get install docker-engine docker-compose-v2 -y
+apt-get install docker-engine docker-compose-v2 httpd2 -y
 ```
 ```bash
 lsblk
