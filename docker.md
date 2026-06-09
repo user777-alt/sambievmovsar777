@@ -25,9 +25,6 @@ cp -r /mnt/docker /root/docker
 ls -la /root/docker
 ```
 ```bash
-docker load -i /root/docker/mariadb_latest.tar
-```
-```bash
 groupadd docker
 ```
 ```bash
