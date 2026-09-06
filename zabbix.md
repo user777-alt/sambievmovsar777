@@ -73,6 +73,39 @@ chown apache2:apache2 /var/www/webapps/zabbix/ui/conf
 ```
 ```bash
 192.168.1.1/zabbix/setup.php
+```
+```bash
+mkdir ens
+```
+```bash
+cd ens
+```
+```bash
+cp options ipv4address ipv4route resolv.conf /etc/net/ifaces/ens
+```
+```bash
+nano options
+```
+```bash
+nano ipv4route
+```
+```bash
+nano ipv4address
+```
+```bash
+systemctl restart network
+```
+```bash
+```
+```bash
+```
+```bash
+```
+```bash
+```
+```bash
+```
+```bash
 
 
 
